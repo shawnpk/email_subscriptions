@@ -31,6 +31,14 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  # Custom
+
+
+  # Custom
+  gem 'better_errors', '~> 2.8', '>= 2.8.1'
+  gem 'binding_of_caller', '~> 0.8.0'
+  gem 'pry-rails', '~> 0.3.9'
 end
 
 group :development do
@@ -40,6 +48,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # Custom
+  gem 'annotate', '~> 3.1', '>= 3.1.1'
 end
 
 group :test do
@@ -55,5 +66,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise', '~> 4.7', '>= 4.7.2'
 gem 'friendly_id', '~> 5.3'
-gem 'sidekiq', '~> 6.1', '>= 6.1.1'
 gem 'name_of_person', '~> 1.1', '>= 1.1.1'
+gem 'sidekiq', '~> 6.1', '>= 6.1.1'
