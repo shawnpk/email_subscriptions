@@ -21,10 +21,18 @@ class TasksController < ApplicationController
   end
 
   def update
-    if @task.update(task_params)
-      redirect_to @project, notice: 'Task was successfully updated.'
-    else
-      render @project
+    @task = @project.tasks.find(params[:task][:id])
+
+    respond_to do |format|
+      if params[:task][:complete] == true
+        @task.update(complete: true)
+      end
+
+      if @task.update(task_params)
+        format.json { render :show, status: :ok, location: project_path(@project) }
+      else
+        render @project
+      end
     end
   end
 
