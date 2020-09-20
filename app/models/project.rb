@@ -25,6 +25,6 @@ class Project < ApplicationRecord
   has_many :tasks, dependent: :destroy
 
   def author(user)
-    self.projects_users.where(user: user)
+    self.project_users.where(user: user)
   end
 end
