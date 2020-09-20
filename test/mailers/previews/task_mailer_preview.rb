@@ -3,7 +3,7 @@ class TaskMailerPreview < ActionMailer::Preview
 
   # Preview this email at http://localhost:3000/rails/mailers/task_mailer/task_created
   def task_created
-    TaskMailer.task_created
+    TaskMailer.with(task: Task.last, user: User.first, author: User.last).task_created
   end
 
   # Preview this email at http://localhost:3000/rails/mailers/task_mailer/task_completed

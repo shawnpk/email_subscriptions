@@ -14,6 +14,11 @@ class TasksController < ApplicationController
     @task = @project.tasks.new(task_params)
 
     if @task.save
+
+      (@project.users.uniq - [current_user]).each do |user|
+        TaskMailer.with(task: @task, user: user, author: current_user).task_created.deliver_later
+      end
+      
       redirect_to @project, notice: 'Task was successfully created.'
     else
       render @project
