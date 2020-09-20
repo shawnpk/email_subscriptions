@@ -20,6 +20,8 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
+  has_many :project_users
+  has_many :projects, through: :project_users
   has_many :projects, dependent: :destroy
   
   has_person_name
